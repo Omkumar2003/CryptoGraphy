@@ -66,6 +66,28 @@ basically we find which letter in encryted text is most and then try to match it
 ![p4](./p4.png)
 
 
+# LECTURE -2 ( Modular Arithmetic)
+
+must watch
+https://www.youtube.com/live/FAmvFm8ELgY?si=UUwUAMZ3TBPim1Fv
+
+ginti 1 se leke infinity tak jaati hai ....aur jab hum bolte hein bohot natural si lagti hai 
+
+1,2,,3,,4,.........
+
+but koi humse time puchta hai to 500 ghante nhi bolte hum ya to 24 ghante wala ya 12 ghante wala timing bolte hein .
+
+aur ye timing sochne mein humnein time nhi lagta 
+
+basically wahi chiz hai modular Airthmetic in real life
+
+few properties which are very impotarnt 
+
+![properties](./p5.png)
+
+https://www.youtube.com/watch?v=W1SY6qKZrUk&list=PL2jrku-ebl3H50FiEPr4erSJiJHURM9BX&index=2
+
+
 
 
 
