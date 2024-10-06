@@ -263,3 +263,113 @@ so **|k| = 12*36 = 312**
 ### attack
 - brute Force
 - frequency analysis
+
+
+
+
+
+
+# Lecture 3
+**what we are going to study in this chapter**
+```
+Stream cipher
+Random number
+OTP 
+LCR 
+```
+
+## Stream cipher
+
+A stream cipher encrypts bits individually.
+
+- **encryption** ```yᵢ = e(xᵢ)  ≡ xᵢ + sᵢ mod 2```
+- **decryption** ```xᵢ = d(yᵢ)  ≡ yᵢ + sᵢ mod 2```
+ 
+### Why mod 2 is there?
+**Because the answer should be in 0 or 1**
+
+
+ ### Why in both encryption and decryption there is an addition symbol ? doesn't it make sense to put plus in an encryption and minus in decryption or vice- versa?
+
+ **I remind you the definition of stream cypher is encrypting bits individually and when encrypting bits individually it does not matter if we use addition or subtraction because at Binary level addition and Subtraction are the same operation**
+![ch_3_1](./ch_3_1.png)
+
+ ## closer look at mod 2 
+
+ ```
+ +----+----+----+
+| xᵢ | sᵢ | Yᵢ |
++----+----+----+
+| 0  | 0  | 0  |
+| 0  | 1  | 1  |
+| 1  | 0  | 1  |
+| 1  | 1  | 0  |
++----+----+----+
+ ```
+**Mod 2 Adition is same as XOR operation**
+
+## Now we know how to encrypt and decrypt but there is still 1 thing missing which is how to generate the key stream bits  sᵢ ?
+
+**Somehow this question is related to randomness**
+![ch_3_2](./ch_3_2.png)
+### TRNG (true random number generator)
+
+True random numbers come from physical processes 
+EXMAPLE - Coin flipping, lottery, noise, thermal, mouse movement ,keystroke timing
+
+### PRNG (pseudo random number generator)
+
+- PRMG are computed
+- They are deterministic 
+- often they are computed with the help of following function
+```
+Sᵢ₊₁ = f(sᵢ)
+
+where S₀ Comes from another source or you can say it is a true Random generator
+```
+Carefully see that only the first thing will be random and all the other iterations or subsequent iteration can be found with the help of the previous one
+
+### CPRNG (cryptographically secure PRNG)
+Cprng rprng with an additional property the numbers are **unpredictable**
+
+```
+Given n output bits
+
+Sᵢ , Sᵢ₊₁ , . . . , Sᵢ₊₍ₙ₋₁₎
+
+Then it is computationally infeasible to construct Sₙ
+```
+
+
+## OTP (one time pad)
+
+It is not that OTP which you are thinking about.......
+
+
+So what actually do we have learnt and what is our goal?
+
+**Our goal is to make a perfect cypher which no one can break it**
+
+A cypher is unconditionally secure (or information theoretical secure) if it cannot be broken even with the infinite computing resources then it is said to be a perfect cypher.
+
+### What is OTP?
+
+- It is a stream cypher
+- The keystream bits are from TRNG
+- Each keystream bit is used only once
+
+**Big drawback is that he is as long as the message........... Yes it is secure but it can cost a lot time as well as money as well as space**
+
+
+## LCG (Linear congruential generator)
+![ch_3_3](./ch_3_3.png)
+- So the idea is use the key screen si from prng
+
+```
+Sᵢ₊₁ = A . Sᵢ + B mod m 
+
+where A, B, Sᵢ belongs Finite set of integer
+
+So key     k = (A,B)
+```
+
